@@ -47,7 +47,7 @@ public class UsuarioDAO {
 			
 			ResultSet result = stmt.executeQuery();
 			if (result.isBeforeFirst()) {
-				result.first();
+				result.next();
 				retorno = new Usuario();
 				retorno.setUsuario(result.getString("usuario"));
 				retorno.setNome(result.getString("nome"));
