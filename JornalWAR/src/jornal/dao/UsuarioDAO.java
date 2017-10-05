@@ -65,11 +65,40 @@ public class UsuarioDAO {
 		return retorno;
 	}
 	
-	public void excluirUsuario() {
-		
+	public void excluirUsuario(String nome) {
+		PreparedStatement stmt = null;
+		try {
+			connection = new JornalDatasource();
+			String sql = "DELETE FROM usuarios WHERE nome = ?;";
+			stmt = connection.getPreparedStatement(sql);
+			stmt.setString(1, nome);
+			
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (connection != null) {
+				connection.closeConnection(stmt);
+			}
+		}
 	}
 	
-	public void alterarUsuario() {
-		
+	public void alterarUsuario(String upt, String nome) {
+		PreparedStatement stmt = null;
+		try {
+			connection = new JornalDatasource();
+			String sql = "UPDATE usuarios SET telefone = ? WHERE nome = ?;";
+			stmt = connection.getPreparedStatement(sql);
+			stmt.setString(1, upt);
+			stmt.setString(2, nome);
+			
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (connection != null) {
+				connection.closeConnection(stmt);
+			}
+		}
 	}
 }
