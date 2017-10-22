@@ -21,17 +21,13 @@ public class NoticiasBean {
 	public NoticiasBean() {
 		noticias = pega.pegaNoticias();
 	}
-	
-	public void inserirNoticia() {
-		
+
+	public PegaNoticias getPega() {
+		return pega;
 	}
-	
-	public void alterarNoticia() {
-		
-	}
-	
-	public void excluirNoticia() {
-		
+
+	public void setPega(PegaNoticias pega) {
+		this.pega = pega;
 	}
 
 	public List<Noticia> getNoticias() {

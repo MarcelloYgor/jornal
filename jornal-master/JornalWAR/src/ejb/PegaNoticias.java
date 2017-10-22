@@ -11,10 +11,24 @@ import jornal.model.Noticia;
 public class PegaNoticias {
 	
 	private NoticiaDAO ntcDAO = new NoticiaDAO();
-	private List<Noticia> noticias;
 	
 	public List<Noticia> pegaNoticias() {
+		List<Noticia> noticias;
 		noticias = ntcDAO.pegarNoticias();
 		return noticias;
+	}
+	
+	public void insereNoticia() {
+		
+	}
+	
+	public void alteraNoticia(String titulo) {
+		System.out.println(titulo);
+		ntcDAO.alterarNoticia(titulo);
+	}
+	
+	public void excluiNoticia(String titulo) {
+		System.out.println(titulo);
+		ntcDAO.excluirNoticia(titulo);
 	}
 }

@@ -18,7 +18,7 @@
 		<div class="container"
 			data-infinite-scroll='{ "path": ".pagination_next", "append": ".post", "history": false }'>
 			<article class="post"> 
-			<h:commandButton action="#{PegaNoticias.inserirNoticia()}" value="Inserir notícia" />
+			<h:commandButton action="#{PegaNoticias.pega.insereNoticia()}" value="Inserir notícia" />
 			 <h:dataTable
 				value="#{PegaNoticias.noticias}" var="noticia">
 				<h:column>
@@ -34,8 +34,8 @@
 					<h3>#{noticia.datacriacao}</h3>
 				</h:column>
 				<h:column>
-				<h:commandButton action="#{PegaNoticias.alterarNoticia()}" value="Alterar" />
-				<h:commandButton action="#{PegaNoticias.excluirNoticia()}" value="Excluir" />
+				<h:commandButton action="#{PegaNoticias.pega.alteraNoticia(noticia.titulo)}" value="Alterar" />
+				<h:commandButton action="#{PegaNoticias.pega.excluiNoticia(noticia.titulo)}" value="Excluir" />
 				</h:column>
 			</h:dataTable>
 			</article>

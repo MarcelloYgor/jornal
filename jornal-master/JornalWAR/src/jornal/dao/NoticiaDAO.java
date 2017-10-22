@@ -123,7 +123,7 @@ public class NoticiaDAO {
 		}
 	}
 
-	public void alterarNoticia() {
+	public void alterarNoticia(String titulo) {
 
 	}
 
