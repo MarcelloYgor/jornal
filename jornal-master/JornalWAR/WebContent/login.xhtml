@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+<meta charset="utf8" />
+<title>Login</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous" />
+</head>
+<body>
+	<div id="interface">
+		<header id="cabecalho"> <hgroup>
+		<h1>Login</h1>
+		<h2>Insira seus dados para acessar o editor!</h2>
+		</hgroup> </header>
+		<section id="corpo"> <article id="tronco"> 
+		<h:form
+			id="formulario" styleClass="forms">
+			<fieldset>
+				<h2></h2>
+				<br /> <br /> <br />
+				<h:inputText id="login" styleClass="inputs"
+					value="#{ValidaUsuario.login}" />
+				<br />
+				<h:inputText id="senha" styleClass="inputs"
+					value="#{ValidaUsuario.senha}" />
+				<h:commandButton action="#{ValidaUsuario.logar()}"
+					styleClass="botoes" value="Logar" />
+			</fieldset>
+		</h:form>
+
+		</article> </section>
+
+		<footer id="rodape">
+		<p></p>
+		</footer>
+	</div>
+</body>
+
+</html>
