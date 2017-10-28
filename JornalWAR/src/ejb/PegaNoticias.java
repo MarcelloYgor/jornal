@@ -22,13 +22,14 @@ public class PegaNoticias {
 		
 	}
 	
-	public void alteraNoticia(String titulo) {
-		System.out.println(titulo);
-		ntcDAO.alterarNoticia(titulo);
+	public Noticia alteraNoticia(int id) {
+		Noticia noticia = ntcDAO.consultarNoticia(id);
+		System.out.println(id);
+		System.out.println("alterou");
+		return noticia;
 	}
 	
 	public void excluiNoticia(String titulo) {
 		System.out.println(titulo);
-		ntcDAO.excluirNoticia(titulo);
 	}
 }

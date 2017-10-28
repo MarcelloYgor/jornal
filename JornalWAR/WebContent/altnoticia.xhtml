@@ -5,39 +5,38 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
-<meta charset="utf-8" />
-<title>Notícias</title>
+<meta charset="utf8" />
+<title>Login</title>
 </head>
 <body>
 	<div id="interface">
 		<header id="cabecalho"> <hgroup>
-		<h1>Notícias</h1>
-		<h2>Página de publicação de notícias </h2>
+		<h1>Alteração de notícia</h1>
+		<h2></h2>
 		</hgroup> </header>
-		<section id="corpo"> <article id="tronco">
-			<h:commandButton action="#{PegaNoticias.pega.insereNoticia()}" value="Inserir notícia" />
-			 <h:form>
+		<section id="corpo"> <article id="tronco"> 
+		<h:form>
 			 <h:dataTable
-				value="#{PegaNoticias.noticias}" var="noticia">
+				value="#{PegaNoticias.noticia}" var="noticia">
 				<h:column>
-					<h1>#{noticia.titulo}</h1>
+					<label>Titulo</label>
+					<h:inputText value="#{noticia.titulo}" />
 				</h:column>
 				<br />
 				<h:column>
 					<p>#{noticia.descricao}</p>
+					<label>Descrição</label>
+					<h:inputText value="#{noticia.descricao}" />
 				</h:column>
 				<br />
 				<h:column>
-					<h3>#{noticia.jornalista}</h3>
-					<h3>#{noticia.datacriacao}</h3>
-				</h:column>
-				<h:column>
-				<h:commandButton action="#{PegaNoticias.altera(noticia.id)}" value="Alterar" />
-				<h:commandButton action="#{PegaNoticias.pega.excluiNoticia()}" value="Excluir" />
+				<h:commandButton action="#{PegaNoticias.pega.alteraNoticia()}" value="Salvar" />
+				<h:commandButton action="#{PegaNoticias.cancela()}" value="Cancelar" />
 				</h:column>
 			</h:dataTable>
 			</h:form>
-			</article> </section>
+
+		</article> </section>
 
 		<footer id="rodape">
 		<p></p>

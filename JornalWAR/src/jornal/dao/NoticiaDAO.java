@@ -39,19 +39,20 @@ public class NoticiaDAO {
 		}
 	}
 
-	public Noticia consultarNoticia(String titulo) {
+	public Noticia consultarNoticia(int id) {
 		PreparedStatement stmt = null;
 		Noticia retorno = null;
 		try {
 			connection = new JornalDatasource();
-			String sql = "SELECT * FROM noticias WHERE titulo = ?";
+			String sql = "SELECT * FROM noticias WHERE id = ?";
 			stmt = connection.getPreparedStatement(sql);
-			stmt.setString(1, titulo);
+			stmt.setInt(1, id);
 
 			ResultSet result = stmt.executeQuery();
 			if (result.isBeforeFirst()) {
 				result.next();
 				retorno = new Noticia();
+				retorno.setId(result.getInt("id"));
 				retorno.setTipo(result.getString("tipo"));
 				retorno.setJornalista(result.getString("jornalista"));
 				retorno.setTitulo(result.getString("titulo"));
