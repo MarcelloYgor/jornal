@@ -5,13 +5,14 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import ejb.PegaNoticias;
 import jornal.model.Noticia;
 
 @ManagedBean(name = "PegaNoticias")
-@ViewScoped
+@SessionScoped
 public class NoticiasBean {
 	
 	private List<Noticia> noticias;
@@ -22,11 +23,22 @@ public class NoticiasBean {
 	
 	public String altera(int id) {
 		String retorno = "/altnoticia.xhtml";
+		for (Noticia peganoticia : noticias) {
+			if (peganoticia.getId() == id) {
+				noticia = peganoticia;
+			}
+		}
 		return retorno;
 	}
 	
 	public String cancela() {
-		String retorno = "/noticas.xhtml";
+		String retorno = "/noticias.xhtml";
+		return retorno;
+	}
+	
+	public String salva() {
+		String retorno = "/noticias.xhtml";
+		pega.alteraNoticia(noticia);
 		return retorno;
 	}
 

@@ -16,23 +16,18 @@
 		</hgroup> </header>
 		<section id="corpo"> <article id="tronco"> 
 		<h:form>
-			 <h:dataTable
-				value="#{PegaNoticias.noticia}" var="noticia">
-				<h:column>
+			
 					<h2>Titulo</h2>
-					<h:inputText value="#{noticia.titulo}" />
-				</h:column>
+					<h:inputText value="#{PegaNoticias.noticia.titulo}" />
 				<br />
-				<h:column>
 					<h2>Descrição</h2>
-					<h:inputText value="#{noticia.descricao}" />
-				</h:column>
+					<h:inputText value="#{PegaNoticias.noticia.descricao}" />
 				<br />
-				<h:column>
+					<h2>Tipo</h2>
+					<h:inputText value="#{PegaNoticias.noticia.tipo}" />
+				<br />
 				<h:commandButton action="#{PegaNoticias.salva()}" value="Salvar" />
 				<h:commandButton action="#{PegaNoticias.cancela()}" value="Cancelar" />
-				</h:column>
-			</h:dataTable>
 			</h:form>
 
 		</article> </section>

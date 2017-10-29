@@ -22,9 +22,8 @@ public class PegaNoticias {
 		
 	}
 	
-	public Noticia alteraNoticia(int id) {
-		Noticia noticia = ntcDAO.consultarNoticia(id);
-		System.out.println(id);
+	public Noticia alteraNoticia(Noticia noticia) {
+		ntcDAO.alterarNoticia(noticia);
 		System.out.println("alterou");
 		return noticia;
 	}

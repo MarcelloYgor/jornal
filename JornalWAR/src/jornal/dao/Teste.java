@@ -99,7 +99,7 @@ public class Teste {
 	
 	public void testeConsultarNoticia() {
 		NoticiaDAO not = new NoticiaDAO();
-		Noticia noticia = not.consultarNoticia("Neymar faz gol");
+		Noticia noticia = not.consultarNoticia(1);
 		System.out.println(noticia.getDescricao());
 		System.out.println(noticia.getTipo());
 		System.out.println(noticia.getDatacriacao());

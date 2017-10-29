@@ -77,7 +77,7 @@ public class NoticiaDAO {
 		List<Noticia> noticias = null;
 		try {
 			connection = new JornalDatasource();
-			String sql = "select tipo, jornalista, titulo, descricao, datacriacao, aprovador_id, aprovador_data, assinantes "
+			String sql = "select id, tipo, jornalista, titulo, descricao, datacriacao, aprovador_id, aprovador_data, assinantes "
 					+ "from noticias;";
 			stmt = connection.getPreparedStatement(sql);
 			ResultSet result = stmt.executeQuery();
@@ -85,6 +85,7 @@ public class NoticiaDAO {
 			noticias = new ArrayList<>();
 			while (result.next()) {
 				Noticia noticia = new Noticia();
+				noticia.setId(result.getInt("id"));
 				noticia.setTipo(result.getString("tipo"));
 				noticia.setJornalista(result.getString("jornalista"));
 				noticia.setTitulo(result.getString("titulo"));
@@ -124,8 +125,24 @@ public class NoticiaDAO {
 		}
 	}
 
-	public void alterarNoticia(String titulo) {
-
+	public void alterarNoticia(Noticia noticia) {
+		PreparedStatement stmt = null;
+		try {
+			connection = new JornalDatasource();
+			String sql = "UPDATE noticias SET titulo = ?, descricao = ? WHERE id = ?;";
+			stmt = connection.getPreparedStatement(sql);
+			stmt.setString(1, noticia.getTitulo());
+			stmt.setString(2, noticia.getDescricao());
+			stmt.setInt(3, noticia.getId());
+			
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (connection != null) {
+				connection.closeConnection(stmt);
+			}
+		}
 	}
 
 	public java.sql.Date pegaDataAtual() {
